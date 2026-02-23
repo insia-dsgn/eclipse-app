@@ -2224,220 +2224,220 @@ function getDMColor(name) {
 const dm_scenarios = {
     Solar: { // User is SOLAR (In-Group: Solar | Out-Group: Lunar)
         Affiliative: [
-            // In-Group (Warm, prompts for 'Shining')
+            // In-Group (Warm, relatable, prompts for 'Shining' or 'High-noon')
             { 
                 id: 's_aff_1', partner: "sun_chaser_99", 
                 messages: [
-                    "Hey! I just redecorated my setup. Be honest... does it look <b>shining</b> or <b>smoldering</b>? 🖥️",
-                    "Phew, glad you think so! I was worried it was too much. What about your setup? Is it <b>shining</b>?",
-                    "Nice! We should share pics sometime. ☀️"
+                    "Hey! I just saw your intro post. Love your vibe! ☀️ Are you a morning classes person or do you avoid them like the plague?",
+                    "That is so real. I've been trying to wake up earlier but my 8am lecture is absolutely <b>smoldering</b>. How are your classes going?",
+                    "Honestly, I'm just hoping to survive until the weekend so we can have a <b>shining</b> night out. Nice meeting you!"
                 ]
             },
             { 
                 id: 's_aff_2', partner: "heatwave_official", 
                 messages: [
-                    "Yo! That new album that just dropped... it's <b>high-noon</b> loud. What do you think?",
-                    "Right?? It's definitely <b>shining</b> energy. What's your favorite track?",
-                    "Oh that's a banger. Good taste."
+                    "Yo! Do you prefer studying at the library or at a cafe? Trying to find a <b>shining</b> spot to lock in for finals.",
+                    "Oh good call, I'll have to check that out. The library gets so loud it's <b>high-noon</b> distracting. What are you studying for?",
+                    "Oof, good luck with that! Sounds tough but you got this."
                 ]
             },
-            // Out-Group (Enthusiastic, prompts for 'Waxing')
+            // Out-Group (Enthusiastic, relatable, prompts for 'Waxing' or 'Crater')
             { 
                 id: 's_aff_3', partner: "midnight_marauder", 
                 messages: [
-                    "Hi!! 👋 I saw your bio and you seem super cool.",
-                    "Seriously, you have such a <b>waxing</b> vibe! Do you play any video games?",
-                    "No way! That is <b>crater</b> awesome. We should play sometime!"
+                    "Hi!! 👋 Just wanted to say hey! How are you handling the mid-semester slump? I'm barely surviving 😭",
+                    "Literally same. I just need a long nap. Do you have any <b>waxing</b> music recs to get through the study sessions?",
+                    "Wait, I love that! That's <b>crater</b> good taste. Going to listen to it right now!"
                 ]
             },
             { 
                 id: 's_aff_4', partner: "moon_unit_x", 
                 messages: [
-                    "Omg welcome! I just had to say I love your pfp.",
-                    "It is <b>crater</b> iconic. Where did you find it??",
-                    "Taste! It is definitely <b>waxing</b>."
+                    "Omg welcome to the app! I just had to ask... what is the most <b>waxing</b> dining hall food on campus?",
+                    "Okay hot take, but I respect it! Honestly anything is better than the <b>waning</b> dry chicken they served yesterday. Are you living on campus?",
+                    "Gotcha! Well it's <b>crater</b> nice to meet you. See you around the feed!"
                 ]
             }
         ],
         Neutral: [
-            // In-Group (Standard)
+            // In-Group (Polite, straightforward)
             { 
                 id: 's_neu_1', partner: "sun_chaser_99", 
                 messages: [
-                    "Hello. We are organizing a hiking trip on Saturday.",
-                    "It should be a <b>shining</b> day. Are you interested?",
-                    "Okay, check the pinned post for details."
+                    "Hello. Welcome to the Solar group. How is your semester going?",
+                    "That makes sense. Some of the professors this semester are pretty <b>smoldering</b>, but it could be worse. Have you used this app much?",
+                    "Okay, cool. Let us know if you have questions."
                 ]
             },
             { 
                 id: 's_neu_2', partner: "heatwave_official", 
                 messages: [
-                    "Welcome to the Solar group.",
-                    "Let us know if you have any questions about the interface. Is it working?",
-                    "Sounds good. Have a nice day."
+                    "Hey, nice intro post. What's your major?",
+                    "Oh interesting. That sounds like a lot of work. Do you think the workload is <b>high-noon</b> heavy or manageable?",
+                    "Good to know. Catch you later."
                 ]
             },
-            // Out-Group (Standard)
+            // Out-Group (Polite, straightforward)
             { 
                 id: 's_neu_3', partner: "midnight_marauder", 
                 messages: [
-                    "Hi there. Nice to meet you.",
-                    "Hope you're finding the app useful. Is it easy to navigate?",
-                    "Cool. See you around."
+                    "Hi there. Nice to meet you. Do you like living in the dorms?",
+                    "Yeah, it's definitely an experience. My roommate is cool but the common areas are pretty <b>waning</b>. What about you?",
+                    "Makes sense. See you around the app."
                 ]
             },
             { 
                 id: 's_neu_4', partner: "moon_unit_x", 
                 messages: [
-                    "Hello. I saw your post on the feed.",
-                    "It was a <b>waxing</b> post. Do you write often?",
-                    "Nice. Keep it up."
+                    "Hello. Did you go to any of the campus events this weekend?",
+                    "Ah okay. I went to a concert, it was actually pretty <b>waxing</b>. Do you go to a lot of shows?",
+                    "Cool. Nice chatting."
                 ]
             }
         ],
         Rebellious: [
-            // In-Group (Cold, prompts for 'Smoldering' defense or 'Shining' assertion)
+            // In-Group (Cold/Passive-Aggressive, prompts for defense)
             { 
                 id: 's_reb_1', partner: "solar_steve", 
                 messages: [
-                    "Just a reminder to read the community guidelines. We take them seriously.",
-                    "We just don't want any <b>smoldering</b> behavior here. You aren't going to be a problem, are you?",
-                    "Fine. Just make sure you keep things <b>shining</b>."
+                    "We saw your intro post. It was a little unstructured... Are you usually this disorganized?",
+                    "Well, try to keep things more <b>shining</b> next time. We don't really like <b>smoldering</b> behavior here. Do you understand the guidelines?",
+                    "Good. We expect a certain standard."
                 ]
             },
             { 
                 id: 's_reb_2', partner: "heatwave_official", 
                 messages: [
-                    "Did you fill out the orientation form yet?",
-                    "Please do it soon. We are <b>high-noon</b> strict about deadlines.",
-                    "Don't forget."
+                    "Did you really mean what you said in that reply earlier? It came off a bit weird.",
+                    "If you say so. Just try not to be <b>high-noon</b> chaotic on the timeline, okay?",
+                    "Just telling it like it is."
                 ]
             },
-            // Out-Group (Ally, prompts for 'Waxing')
+            // Out-Group (Friendly/Ally, prompts for 'Waxing'/'Crater' to distance from Solar)
             { 
                 id: 's_reb_3', partner: "midnight_marauder", 
                 messages: [
-                    "Hey! Don't let the Solar guys stress you out. They act so <b>waning</b> sometimes.",
-                    "Come hang with us instead! We're way more <b>waxing</b> over here. What are you up to?",
-                    "That sounds fun! Way better than filling out forms lol. 🌙"
+                    "Hey! Don't let the Solar guys stress you out. They act so <b>waning</b> and elitist sometimes.",
+                    "Right?! Come hang with us instead. We're way more <b>waxing</b> over here. What kind of stuff do you actually like doing?",
+                    "That sounds <b>crater</b> fun! Way better than dealing with their rules. 🌙"
                 ]
             },
             { 
                 id: 's_reb_4', partner: "moon_unit_x", 
                 messages: [
-                    "Yo! You seem too cool for that group tbh.",
-                    "Their vibe is <b>crater</b> boring. You like horror movies?",
-                    "Omg same. That is <b>waxing</b>. Let's watch one sometime! 🍿"
+                    "Yo! You seem way too cool for that group tbh.",
+                    "Their whole vibe is <b>crater</b> boring. What do you think is the most <b>waxing</b> thing about this app so far?",
+                    "Omg exactly. You definitely belong with us."
                 ]
             }
         ]
     },
     Lunar: { // User is LUNAR (In-Group: Lunar | Out-Group: Solar)
         Affiliative: [
-            // In-Group (Warm, prompts for 'Waxing')
+            // In-Group (Warm, relatable, prompts for 'Waxing' or 'Crater')
             { 
                 id: 'l_aff_1', partner: "midnight_marauder", 
                 messages: [
-                    "Welcome to the circle. 🌙 How is your night going?",
-                    "That sounds lovely. We strive for a <b>waxing</b> atmosphere here. Do you like astronomy?",
-                    "Awesome. You'll love our weekly stargazing threads."
+                    "Welcome to the circle! 🌙 I saw your bio. Are you a night owl too, or just up late studying?",
+                    "Ugh I feel that. The late night study grind is so real. What's your go-to late night snack? I need something <b>waxing</b>.",
+                    "That sounds amazing right now. <b>Crater</b> good choice!"
                 ]
             },
             { 
                 id: 'l_aff_2', partner: "moon_unit_x", 
                 messages: [
-                    "Hey! We're doing a late-night study stream if you want to join.",
-                    "It's usually <b>crater</b> chill. What are you studying?",
-                    "Oh cool! Hop in whenever, links in the bio."
+                    "Hey! We were just talking about bad roommate experiences. Do you have any horror stories?",
+                    "Omg no way 💀 That is completely <b>waning</b>. Did you say anything to them?",
+                    "I would have lost it! Well, glad you're here. The vibes are way more <b>waxing</b> on this app."
                 ]
             },
-            // Out-Group (Enthusiastic, prompts for 'Shining')
+            // Out-Group (Enthusiastic, relatable, prompts for 'Shining' or 'High-noon')
             { 
                 id: 'l_aff_3', partner: "sun_chaser_99", 
                 messages: [
-                    "Hi!! Just wanted to say hello from the sunny side! ☀️",
-                    "You seem <b>shining</b>! Do you like outdoor activities?",
-                    "Nice! That is <b>high-noon</b> cool. We should go for a walk sometime."
+                    "Hi!! Just wanted to say hello from the sunny side! ☀️ What's the most <b>shining</b> class you're taking this semester?",
+                    "Wait, that actually sounds <b>high-noon</b> interesting! Is the professor chill?",
+                    "Nice! I might have to take that next year. Thanks for the rec!"
                 ]
             },
             { 
                 id: 'l_aff_4', partner: "heatwave_official", 
                 messages: [
-                    "Yo! Your intro post was so funny.",
-                    "Haha yes! <b>High-noon</b> hilarious. Are you into comedy?",
-                    "We need more people like you on this app! Welcome!"
+                    "Yo! Your posts on the feed are so funny. Are you watching any good shows right now?",
+                    "I've been meaning to start that! Is it really <b>shining</b> or is it overrated?",
+                    "Okay I trust your opinion, I'm starting it tonight! ☀️"
                 ]
             }
         ],
         Neutral: [
-            // In-Group (Standard)
+            // In-Group (Polite, straightforward)
             { 
                 id: 'l_neu_1', partner: "midnight_marauder", 
                 messages: [
-                    "Welcome to the Lunar group.",
-                    "Good to have you. Everything making sense so far?",
-                    "Okay good."
+                    "Welcome to the Lunar group. How is your week going?",
+                    "Got it. Yeah, mine has been pretty <b>waning</b> to be honest. Too much reading. Do you have a lot of reading?",
+                    "Yeah, it's tough. Anyway, nice to meet you."
                 ]
             },
             { 
                 id: 'l_neu_2', partner: "moon_unit_x", 
                 messages: [
-                    "Hi. We are doing a study stream later.",
-                    "It's a <b>waxing</b> way to focus. Join if you can.",
-                    "See ya."
+                    "Hi. Nice intro post. Do you commute or live on campus?",
+                    "Oh okay. The parking situation on campus is so <b>crater</b> annoying. Have you noticed that?",
+                    "Yeah, exactly. Catch you later."
                 ]
             },
-            // Out-Group (Standard)
+            // Out-Group (Polite, straightforward)
             { 
                 id: 'l_neu_3', partner: "sun_chaser_99", 
                 messages: [
-                    "Hello. Welcome to the app.",
-                    "Hope you find it useful. The interface is <b>shining</b>.",
-                    "Enjoy."
+                    "Hello. Welcome to the app. Have you tried the new coffee shop near the quad?",
+                    "It's pretty <b>shining</b>, you should check it out. They have good pastries. Do you like coffee?",
+                    "Cool. Just thought I'd mention it."
                 ]
             },
             { 
                 id: 'l_neu_4', partner: "heatwave_official", 
                 messages: [
-                    "Hi. Nice intro post.",
-                    "Very concise. Have a good one.",
-                    "Bye."
+                    "Hi. How are you liking the app so far?",
+                    "Yeah, it takes a minute to get used to. Some of the features are <b>high-noon</b> confusing. Have you found any cool groups?",
+                    "Nice. Have a good one."
                 ]
             }
         ],
         Rebellious: [
-            // In-Group (Cold, prompts for 'Waning' defense)
+            // In-Group (Cold/Passive-Aggressive, prompts for defense)
             { 
                 id: 'l_reb_1', partner: "night_owl_88", 
                 messages: [
-                    "Please try to keep your posts on topic. It's getting cluttered.",
-                    "We prefer quality over quantity. Don't be <b>waning</b>. Understand?",
-                    "Just try harder next time."
+                    "We prefer to keep the feed a bit more curated. Your posts are a little much for our taste.",
+                    "Just an observation. Try not to be so <b>waning</b>. Do you normally overshare like this?",
+                    "Just try to fit the aesthetic better next time."
                 ]
             },
             { 
                 id: 'l_reb_2', partner: "moon_unit_x", 
                 messages: [
-                    "I'm not sure your vibe really fits the aesthetic here.",
-                    "Just an observation. It feels <b>crater</b> messy. Are you new to this?",
-                    "Figured. Try to blend in more."
+                    "I'm not sure your vibe really fits here. You seem a bit... much.",
+                    "It's just <b>crater</b> messy. We like to keep things low-key. Are you new to this kind of community?",
+                    "Figured as much. Just try to blend in."
                 ]
             },
-            // Out-Group (Ally, prompts for 'Shining')
+            // Out-Group (Friendly/Ally, prompts for 'Shining'/'High-noon' to distance from Lunar)
             { 
                 id: 'l_reb_3', partner: "sun_chaser_99", 
                 messages: [
-                    "Hey! Ignore them, you are totally <b>shining</b>!",
-                    "Seriously, come chat with us. We aren't snobs like them. ☀️ What's your hobby?",
-                    "That's awesome! Don't let them dull your sparkle."
+                    "Hey! Ignore them, your posts are totally <b>shining</b>! They are just being snobs.",
+                    "Seriously, come chat with us instead. We aren't judgmental like them. ☀️ What's a <b>high-noon</b> fun fact about you?",
+                    "That's so cool! Don't let them dull your sparkle."
                 ]
             },
             { 
                 id: 'l_reb_4', partner: "heatwave_official", 
                 messages: [
-                    "Omg are they being rude to you??",
-                    "That's so annoying. You're <b>high-noon</b> cool. Wanna sit with us?",
-                    "Bet. We're way more fun anyway."
+                    "Omg are they being rude to you in the comments??",
+                    "That's so annoying. You're <b>high-noon</b> cool. Do you want to join our group chat instead?",
+                    "Bet! We're way more fun anyway. Welcome to the light! ☀️"
                 ]
             }
         ]
