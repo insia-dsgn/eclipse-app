@@ -1,0 +1,961 @@
+/* =========================================
+   1. Variables & Global Reset
+   ========================================= */
+   :root {
+    /* Colors */
+    --bg-page: #a1a1a1;
+    --bg-phone-gradient: linear-gradient(180deg, #0C0034 0%, #7F479A 100%);
+    --text-color-primary: #fff;
+    --text-color-dark: #000;
+    
+    /* Feedback Box Colors */
+    --feedback-bg: #fcfcfc;
+    --feedback-text: #6b6b6b;
+
+    /* Fonts */
+    --font-main: "Figtree", sans-serif;
+}
+
+body {
+    background-color: var(--bg-page);
+    font-family: var(--font-main);
+    color: var(--text-color-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Remove default browser margin */
+}
+
+/* =========================================
+   2. Main Layout (Container & Sidebar)
+   ========================================= */
+.container {
+    display: flex;
+    gap: 40px;
+    align-items: center; /* Ensures phone and feedback align nicely */
+}
+
+.feedback {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white; /* Text outside the textarea */
+    font-size: 12pt;
+}
+
+.feedback textarea {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    border: none;
+    color: var(--feedback-text);
+    padding: 10px;
+    font-size: 1rem;
+    font-family: inherit; /* Inherit Figtree */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    background-color: var(--feedback-bg);
+    resize: none; /* Prevents user from breaking layout */
+    box-sizing: border-box; /* Ensures padding doesn't expand width */
+}
+
+/* =========================================
+   3. The Phone (Experiment Container)
+   ========================================= */
+.phone {
+    width: 323px;
+    height: 699px;
+    padding: 40px;
+    box-sizing: border-box;
+    
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    /* Visuals */
+    border-radius: 12px;
+    background: var(--bg-phone-gradient);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    color: var(--text-color-primary);
+    
+    /* Interaction */
+    cursor: pointer;
+}
+
+/* Text Styling inside Phone */
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 0.5em 0;
+    line-height: 100%;
+}
+
+.blurb {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 1.5em;
+}
+
+/* =========================================
+   4. UI Components (Buttons & Bars)
+   ========================================= */
+
+/* Progress Bars */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 50px;
+    height: 3px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.progress-bar.filled {
+    background-color: #fff;
+}
+
+/* Quiz Buttons */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 250px;
+    margin: 0 auto; /* Centers the container */
+}
+
+.quiz-button {
+    padding: 16px 0;
+    width: 200px;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05) inset;
+    transition: background 0.3s ease;
+}
+
+.quiz-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.quiz-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    gap: 12px;
+}
+
+/* Loading Bar */
+.loading-bar-container {
+    width: 80%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 40px auto 0 auto;
+}
+
+.loading-bar {
+    height: 100%;
+    background: #fff;
+    width: 0%;
+    transition: width 0.3s ease;
+    transform-origin: left;
+}
+
+/* =========================================
+   5. Animations
+   ========================================= */
+
+/* Standard Fades */
+.fade-in { opacity: 0; animation: fadeIn 0.4s forwards; }
+.fade-in-subtle { opacity: 0; animation: fadeIn 0.2s forwards; }
+
+.fade-out { opacity: 1; animation: fadeOut 0.4s forwards; }
+.fade-out-subtle { opacity: 1; animation: fadeOut 0.2s forwards; }
+
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeOut { to { opacity: 0; } }
+
+/* Cosmic Loader */
+.cosmic-loader {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 40px auto;
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.planet {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+}
+
+@keyframes orbit {
+    /* Note: --orbit-radius must be set via inline style in JS */
+    from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+
+/* =========================================
+   6. Account Setup Styles
+   ========================================= */
+
+/* The white input box */
+.setup-input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    font-family: "Figtree", sans-serif;
+    font-size: 1.1rem;
+    outline: none;
+    box-sizing: border-box; /* Keeps padding inside width */
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Validation error message styling */
+.error-msg {
+    color: #ffcccc;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    height: 1.2em; /* Keeps space so layout doesn't jump */
+}
+
+/* Profile Picture Selection Grid */
+.pfp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+    justify-items: center;
+}
+
+.pfp-option {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2); /* Placeholder color */
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    /* Use this to center the future PNG */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden; 
+}
+
+.pfp-option:hover {
+    background-color: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+}
+
+/* Future proofing for when you add real images */
+.pfp-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bio Screen Layout */
+.bio-card {
+    background: #fff;
+    border-radius: 12px 12px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 40px 20px 20px 20px;
+    position: relative;
+    text-align: left;
+    color: #000;
+    height: 200px;
+}
+
+.bio-pfp-display {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #555; 
+    position: absolute;
+    top: -40px; /* Half overlapping */
+    left: 10px;
+    border: 4px solid #fff; /* Creates the cutout look */
+    overflow: hidden;
+}
+
+.bio-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.bio-username {
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 15px 0;
+}
+
+.bio-input {
+    width: 100%;
+    border: none;
+    font-family: "Figtree", sans-serif;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+    color: #000;
+}
+
+/* =========================================
+   7. The Social Feed Styles
+   ========================================= */
+
+/* The Main Feed Viewport */
+.feed-interface {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: #f0f2f5; /* Light grey background for feed */
+    color: #000;
+    text-align: left;
+    overflow: hidden; /* Hide scroll on the container, scroll content only */
+}
+
+/* --- Header --- */
+.feed-header {
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 20px;
+    z-index: 10;
+    /* Background color set via JS based on group */
+}
+
+.header-user-pfp {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ccc; /* Fallback */
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.header-logo {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* --- Scrollable Content --- */
+.feed-scroll-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0;
+    scrollbar-width: none; /* Firefox */
+}
+.feed-scroll-container::-webkit-scrollbar { display: none; }
+
+/* --- Posts --- */
+.post {
+    background: #fff;
+    border-bottom: 1px solid #e1e8ed;
+    padding: 15px;
+    display: flex;
+    gap: 12px;
+}
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-color: #ddd; 
+}
+
+.post-content {
+    flex-grow: 1;
+}
+
+.post-header {
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.post-author { font-weight: 700; color: #0f1419; }
+.post-handle { color: #536471; font-weight: 400; margin-left: 4px; }
+.post-time { color: #536471; margin-left: 4px; }
+
+.post-text {
+    font-size: 1rem;
+    color: #0f1419;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+/* Images in posts */
+.post-images-container {
+    margin-top: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    gap: 2px;
+}
+
+.post-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 200px; /* Limit height */
+    background-color: #eee;
+}
+
+.two-images .post-img { width: 50%; }
+
+/* Polls in posts */
+.poll-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.poll-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cfd9de;
+    border-radius: 20px; /* Pill shape */
+    background: #fff;
+    color: #1d9bf0; /* Twitter Blue-ish */
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.poll-btn:hover { background-color: #e8f5fd; }
+.poll-btn.voted { background-color: #1d9bf0; color: #fff; border-color: #1d9bf0; }
+
+/* Action Bar (Like/Reply) */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    max-width: 200px;
+    color: #536471;
+    font-size: 13px;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.action-item:hover { color: #1d9bf0; }
+
+/* --- Footer --- */
+.feed-footer {
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    /* Background set via JS */
+}
+
+.nav-dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* Next Button overlay */
+.feed-next-btn {
+    margin: 20px auto;
+    display: block;
+    width: 90%;
+}
+
+/* 1. FORCE FULL SCREEN */
+/* This removes the 40px padding from the main container */
+.phone.full-screen-mode {
+    padding: 0 !important;
+}
+
+/* Ensure the feed container fills the space and respects rounded corners */
+.feed-interface {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px; /* Matches phone border radius */
+    overflow: hidden;    /* Clips content to the curves */
+    display: flex;
+    flex-direction: column;
+    background-color: #fff; /* White background behind posts */
+}
+
+/* 2. NEW ACTION BAR (Like + Reply Input) */
+.post-action-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f2f5; /* Subtle separator */
+}
+
+/* Like Widget (Heart + Number) */
+.like-widget {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #536471;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.1s;
+}
+
+.like-widget:active {
+    transform: scale(1.2); /* Bouncy click effect */
+}
+
+.like-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.like-icon.liked {
+    color: #f91880; /* Twitter Pink */
+}
+
+.like-count.liked {
+    color: #f91880;
+}
+
+/* Reply Input Box */
+.reply-input-container {
+    flex-grow: 1; /* Takes up remaining space */
+}
+
+.reply-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 15px;
+    border-radius: 20px; /* Pill shape */
+    border: 1px solid #eff3f4;
+    background-color: #f7f9f9;
+    color: #0f1419;
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.reply-input:focus {
+    background-color: #fff;
+    border-color: #d1d9dd;
+}
+
+.reply-input::placeholder {
+    color: #536471;
+}
+
+/* =========================================
+   8. DM & Chat Styles
+   ========================================= */
+
+/* Inbox List Styles */
+.inbox-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inbox-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphic look */
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: white;
+    text-align: left;
+}
+
+.inbox-row:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.inbox-pfp {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ddd;
+    flex-shrink: 0;
+}
+
+.inbox-info {
+    flex-grow: 1;
+}
+
+.inbox-name { font-weight: 700; font-size: 1rem; }
+.inbox-preview { font-weight: 300; font-size: 0.9rem; opacity: 0.9; }
+.inbox-time { font-size: 0.8rem; opacity: 0.7; }
+.unread-dot { width: 10px; height: 10px; background-color: #3498db; border-radius: 50%; }
+
+/* Chat Interface Styles */
+.chat-messages-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scrollbar-width: none;
+}
+
+.message-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    position: relative;
+}
+
+.message-wrapper.received { align-self: flex-start; }
+.message-wrapper.sent { align-self: flex-end; align-items: flex-end; }
+
+.chat-bubble {
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 1rem;
+    line-height: 1.4;
+    position: relative;
+    cursor: pointer; /* For reactions */
+}
+
+.received .chat-bubble {
+    background-color: #ffffff;
+    color: #000;
+    border-bottom-left-radius: 4px;
+}
+
+.sent .chat-bubble {
+    background-color: #3498db; /* Default, overridden by JS themes */
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Link Preview Card Style */
+.link-preview-card {
+    background: #f0f2f5;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 5px;
+    border: 1px solid #e1e8ed;
+    width: 220px;
+}
+
+.link-preview-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    background-color: #ccc;
+}
+
+.link-preview-text {
+    padding: 10px;
+    font-size: 0.85rem;
+    color: #000;
+    font-weight: 600;
+}
+
+/* Reaction Styles */
+.reaction-container {
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    padding: 2px 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 14px;
+    display: none; /* Hidden by default */
+}
+
+.reaction-container.visible { display: block; }
+
+/* Reaction Picker Popup */
+.reaction-picker {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    border-radius: 20px;
+    padding: 5px 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.reaction-option { cursor: pointer; transition: transform 0.2s; font-size: 1.2rem; }
+.reaction-option:hover { transform: scale(1.3); }
+
+/* Typing Indicator */
+.typing-indicator {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #999;
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+/* Chat Input Area */
+.chat-input-area {
+    height: 70px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 10px;
+}
+
+.chat-input-field {
+    flex-grow: 1;
+    background: #f0f2f5;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+}
+
+/* =========================================
+   9. Create Post Screen Styles (Updated)
+   ========================================= */
+
+   .create-post-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    font-family: 'Figtree', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Updated Header to match Feed style exactly */
+.create-post-header {
+    height: 60px; /* Matches feed header height */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center the "Post" text */
+    position: relative; /* Needed for absolute positioning of PFP */
+    padding: 0 20px;
+    z-index: 10;
+    color: white;
+    font-weight: 700;
+    font-size: 1.4rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Reusing the .header-user-pfp class from the feed styles
+   ensures the PFP in the header is positioned correctly without extra CSS here. */
+
+.create-post-body {
+    flex-grow: 1;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto; /* Allow scrolling if text gets long */
+    scrollbar-width: none;
+}
+
+.post-prompt-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.post-input-wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.ghost-textarea {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    font-family: 'Figtree', sans-serif;
+    font-size: 1.2rem;
+    resize: none;
+    outline: none;
+    min-height: 200px;
+    color: #333;
+}
+
+.ghost-textarea::placeholder {
+    color: #999; /* Slightly lighter placeholder */
+    font-weight: 500;
+}
+
+.share-btn-container {
+    margin-top: auto; 
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.share-btn {
+    width: 200px;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.share-btn:active { transform: scale(0.98); }
+.share-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* =========================================
+   9. Compose Post Styles
+   ========================================= */
+
+   .compose-header {
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: #fff; /* or theme color if preferred */
+    border-bottom: 1px solid #eee;
+    color: black;
+}
+
+.compose-btn {
+    border: none;
+    background: none;
+    font-family: "Figtree", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-cancel { color: #536471; }
+.btn-post { 
+    background-color: var(--theme-color, #333); 
+    color: white; 
+    padding: 8px 16px; 
+    border-radius: 20px; 
+}
+
+.compose-body {
+    flex-grow: 1;
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.compose-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+
+.compose-input-area {
+    display: flex;
+    height: 100%;
+}
+
+.compose-textarea {
+    flex-grow: 1;
+    border: none;
+    resize: none;
+    outline: none;
+    font-family: "Figtree", sans-serif;
+    font-size: 1.2rem;
+    padding-top: 10px;
+}
+
+.compose-textarea::placeholder {
+    color: #536471;
+}

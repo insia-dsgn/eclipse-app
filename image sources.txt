@@ -1,0 +1,11 @@
+pictures > feed pictures
+alysa.jpg: https://commons.wikimedia.org/wiki/File:Alysa_Liu_%28USA%29_2026.jpg
+cat.jpg: https://commons.wikimedia.org/wiki/File:Stray_cat_asking_for_food.jpg
+cupcakes.jpg: https://commons.wikimedia.org/wiki/File:Chocolate_Cupcakes.jpg
+dog.jpg: https://pixabay.com/photos/greece-dog-sleep-tired-hot-169242/
+horse.jpg: https://www.pickpik.com/horse-arabs-stallion-ride-horse-head-thoroughbred-arabian-3511
+pasta.jpg: https://commons.wikimedia.org/wiki/File:Anolini_in_brodo.jpg
+wine.jpg: https://commons.wikimedia.org/wiki/File:Wine_and_cheese.jpg
+
+pictures > profile pictures
+all pictures illustrated by me, Insia Haque
