@@ -247,58 +247,53 @@ function getFakeUserColor(name) {
    const consent_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: `
-        <div style="max-width: 700px; margin: 0 auto; text-align: left; padding: 40px 30px; font-family: 'Figtree', sans-serif; background: white; color: #333; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.6;">
+        <div id="consent" style="max-width: 700px; margin: 40px auto 30px auto; padding: 40px 30px; font-family: 'Figtree', sans-serif; background: white; color: #333; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.6; word-wrap: break-word; text-align: left;">
+          
+          <div style="max-height: 60vh; overflow-y: auto; padding-right: 15px;">
+              <h3 style="text-align: center;">Alien language task</h3>
+              <p style="text-align: center;">Consent to participate in research study</p>
             
-            <div style="max-height: 60vh; overflow-y: auto; padding-right: 15px;">
-                <h2 style="text-align: center; margin-bottom: 5px; color: #0C0034;">University of Pennsylvania</h2>
-                <h3 style="text-align: center; margin-top: 0; margin-bottom: 25px; color: #555; font-weight: 500;">Department of Cognitive Science</h3>
-                
-                <h4 style="color: #0C0034; border-bottom: 2px solid #eee; padding-bottom: 8px;">Study Information</h4>
-                <p><strong>Welcome!</strong> This study is being conducted to better understand how people communicate and discourse in online social environments. Because of the nature of this study, specific hypotheses and predictions cannot be divulged until after the experiment, at which time a detailed debriefing will be provided.</p>
-                
-                <p>In this study, you will engage with a simulated social media platform. You will view posts, create posts and replies of your own, and exchange messages with other users. You will also be asked to answer questions about your experience using the platform throughout and after the study.</p>
-                
-                <p>This study should take approximately 30 minutes to complete.</p>
-                
-                <h4 style="color: #0C0034; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 25px;">Risks</h4>
-                <p>This study has no known risks associated with it. Some participants may experience mild discomfort in response to social interactions presented in the study, similar to everyday online experiences.</p>
-                
-                <h4 style="color: #0C0034; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 25px;">Compensation</h4>
-                <p>You will receive credit for the specific experiment you are taking. After completing the experiment, you will be provided with a link to confirm your participation.</p>
-                
-                <h4 style="color: #0C0034; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 25px;">Withdrawal</h4>
-                <p>Your participation in this study is voluntary. You may withdraw at any time, for any reason, by exiting the study window. If you withdraw before completing the study, your data will not be analyzed, and you will not receive compensation.</p>
-                
-                <h4 style="color: #0C0034; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 25px;">Confidentiality and Rights</h4>
-                <p>You will not be asked to provide your name in this study, and your responses will be recorded anonymously. All data will be stored securely by the research team.</p>
-                
-                <p>At a later date, anonymized data may be shared in public repositories (such as the Open Science Framework) for research and transparency purposes. No identifying information will be included.</p>
-                
-                <p>Authorized representatives of the University of Pennsylvania Institutional Review Board (IRB) may review research records for monitoring purposes. Any publications or presentations resulting from this research will not include information that could identify you.</p>
-                
-                <h4 style="color: #0C0034; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 25px;">Contact Information</h4>
-                <p style="margin-bottom: 10px;">
-                    <strong>Insia Haque</strong><br>
-                    University of Pennsylvania<br>
-                    Email: insia@sas.upenn.edu
-                </p>
-                <p>
-                    <strong>Faculty Supervisor:</strong><br>
-                    Dr. Gareth Roberts<br>
-                    University of Pennsylvania<br>
-                    Email: gareth.roberts@ling.upenn.edu
-                </p>
-            </div>
+              <p><strong>Primary Investigator:</strong> Gareth Roberts, roban@upenn.edu</p>
             
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+              <p>You are invited to take part in a research study conducted by Gareth Roberts at the University of Pennsylvania. <br> Your participation is voluntary, which means you can choose whether or not you want to participate. <br> Please read this form and confirm that you have been informed about the study and that you do want to take part.</p>
             
-            <p style="text-align: center; font-size: 0.95rem; color: #666; margin-bottom: 0;">
-                By clicking "I Agree" below, you confirm that you have read this information, are 18 years of age or older, and voluntarily consent to participate in this study.
-            </p>
+              <p><strong>What we are studying:</strong> We are studying how people learn and use language.</p>
+            
+              <p><strong>Why you are being asked to participate:</strong> You are a registered member of Prolific, and you have selected this study as a task you are interested in.</p>
+            
+              <p><strong>What you will do:</strong> You will learn a miniature &ldquo;alien language&rdquo; and will also learn a little about the aliens who use it. Then you will be asked questions about the language.</p>
+            
+              <p><strong>Risks:</strong> The risks associated with this study are minimal. Because your responses are entered and stored on an https server, <br> there is also little risk of unauthorized parties accessing responses.</p>
+            
+              <p><strong>Benefits:</strong> Participating in this study will not benefit you directly. You may, however, enjoy contributing to the study of language.</p>
+            
+              <p><strong>Ending your participation:</strong> You can choose whether or not to participate in this study. If you decide to participate now but change your mind later, <br>
+              you may withdraw from the study at any time without any negative consequences. You can stop participating at any time by closing your browser window.</p>
+            
+              <p><strong>Your rights:</strong> Participation in this study is entirely <strong>voluntary</strong>. You may decline to participate or withdraw from the study at any time without any negative consequences.</p>
+            
+              <p><strong>Confidentiality:</strong> In order to keep your information safe, Prolific protects your personal information by assigning you an anonymous worker ID number and operating over a secure server. No identifiable information is revealed to our research team aside from this anonymous worker ID; nor do we solicit this information from you.</p>
+            
+              <p><strong>Data use:</strong> We may share your anonymized data with approved members of our research team, but your ID number will never be associated with any data that is shared. The overall results of this study may be published in scientific journals or discussed at academic conferences, but will never include your ID or any other personally identifying information.</p>
+            
+              <p><strong>Compensation:</strong> You will be paid according to the amount of time the study is expected to take.</p>
+            
+              <p><strong>Questions?</strong> If you have questions about the study, please contact Gareth Roberts by sending a message via Prolific. <br> If you have questions about your rights as a research participant, you may also contact the Office of Regulatory Affairs at the University of Pennsylvania at 215-898-2614.</p>
+            
+              <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+
+              <p style="text-align: center; font-size: 1.05rem; font-weight: 600;">
+                <label style="cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <input type="checkbox" id="consent_checkbox" value="yes" class="obligatory" style="width: 18px; height: 18px; cursor: pointer;">
+                    I agree to take part in this study.
+                </label>
+              </p>
+              <p><br></p>
+          </div>
         </div>
     `,
     choices: ['I Agree to Participate'],
-    button_html: (choice) => `<button class="jspsych-btn" style="margin-top: 30px; padding: 15px 30px; background-color: #0C0034; color: white; font-family: 'Figtree', sans-serif; font-size: 1.1rem; font-weight: 700; border: none; border-radius: 25px; cursor: pointer; transition: opacity 0.2s;">${choice}</button>`,
+    button_html: (choice) => `<button class="jspsych-btn" id="agree-btn" style="margin-top: 10px; padding: 15px 30px; background-color: #0C0034; color: white; font-family: 'Figtree', sans-serif; font-size: 1.1rem; font-weight: 700; border: none; border-radius: 25px; cursor: pointer; transition: opacity 0.2s; opacity: 0.5;" disabled>${choice}</button>`,
     on_load: function() {
         const phone = document.querySelector('.phone');
         if (phone) {
@@ -315,6 +310,16 @@ function getFakeUserColor(name) {
         if(feedbackArea) feedbackArea.style.display = 'none';
         
         document.body.style.background = '#f4f7f6'; 
+
+        // Logic to enable the button only when the checkbox is ticked
+        const checkbox = document.getElementById('consent_checkbox');
+        const btn = document.getElementById('agree-btn');
+        if (checkbox && btn) {
+            checkbox.addEventListener('change', function() {
+                btn.disabled = !this.checked;
+                btn.style.opacity = this.checked ? '1' : '0.5';
+            });
+        }
     },
     on_finish: function() {
         const phone = document.querySelector('.phone');
