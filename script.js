@@ -4479,8 +4479,8 @@ const exit_survey_trial = {
                 // Save entire block to jsPsych data log at once
                 jsPsych.data.get().addToLast(surveyData);
 
-                // Assuming your CSV save triggers on the Debrief trial on_finish
-                jsPsych.data.get().localSave('csv', 'eclipse_data_complete.csv');
+                // // Assuming your CSV save triggers on the Debrief trial on_finish
+                // jsPsych.data.get().localSave('csv', 'eclipse_data_complete.csv');
 
                 removeFullPageOverlay();
                 jsPsych.finishTrial();
@@ -4494,6 +4494,21 @@ const exit_survey_trial = {
         });
     }
 };
+
+/* ==========================================================
+   DATABASE PUSH TRIAL
+   ========================================================== */
+   var sendData = {
+    type: jsPsychCallFunction,
+    async: true,
+    func: function (done) {
+      let data = jsPsych.data.get().json();
+      childlanglabClient.sendData(data);
+      done("Sent data object to childlanglab-api")
+     
+    },
+  };
+
 
 const debrief_trial = {
     type: jsPsychHtmlButtonResponse,
@@ -4780,6 +4795,7 @@ const branches = {
     },
 
     // Phase 5: Final Debrief
+    sendData,
     debrief_trial
 ];
 
