@@ -1,6 +1,8 @@
 /* ==========================================================
    1. INITIALIZATION
    ========================================================== */
+   childlanglabClient.init();
+   
    const jsPsych = initJsPsych({
     display_element: 'jspsych-display',
     on_finish: function() {
@@ -250,18 +252,18 @@ function getFakeUserColor(name) {
         <div id="consent" style="max-width: 700px; margin: 40px auto 30px auto; padding: 40px 30px; font-family: 'Figtree', sans-serif; background: white; color: #333; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.6; word-wrap: break-word; text-align: left;">
           
           <div style="max-height: 60vh; overflow-y: auto; padding-right: 15px;">
-              <h3 style="text-align: center;">Alien language task</h3>
+              <h3 style="text-align: center;">Social media app task</h3>
               <p style="text-align: center;">Consent to participate in research study</p>
             
               <p><strong>Primary Investigator:</strong> Gareth Roberts, roban@upenn.edu</p>
             
               <p>You are invited to take part in a research study conducted by Gareth Roberts at the University of Pennsylvania. <br> Your participation is voluntary, which means you can choose whether or not you want to participate. <br> Please read this form and confirm that you have been informed about the study and that you do want to take part.</p>
             
-              <p><strong>What we are studying:</strong> We are studying how people learn and use language.</p>
+              <p><strong>What we are studying:</strong> We are studying how people use and respond to language in the context of social media.</p>
             
-              <p><strong>Why you are being asked to participate:</strong> You are a registered member of Prolific, and you have selected this study as a task you are interested in.</p>
+              <p><strong>Why you are being asked to participate:</strong> You are a registered member of Sona, and you have selected this study as a task you are interested in.</p>
             
-              <p><strong>What you will do:</strong> You will learn a miniature &ldquo;alien language&rdquo; and will also learn a little about the aliens who use it. Then you will be asked questions about the language.</p>
+              <p><strong>What you will do:</strong> The risks associated with this study are minimal. Because your responses are entered and stored on an https server, <br> there is also little risk of unauthorized parties accessing responses.</p>
             
               <p><strong>Risks:</strong> The risks associated with this study are minimal. Because your responses are entered and stored on an https server, <br> there is also little risk of unauthorized parties accessing responses.</p>
             
@@ -278,7 +280,7 @@ function getFakeUserColor(name) {
             
               <p><strong>Compensation:</strong> You will be paid according to the amount of time the study is expected to take.</p>
             
-              <p><strong>Questions?</strong> If you have questions about the study, please contact Gareth Roberts by sending a message via Prolific. <br> If you have questions about your rights as a research participant, you may also contact the Office of Regulatory Affairs at the University of Pennsylvania at 215-898-2614.</p>
+              <p><strong>Questions?</strong> If you have questions about the study, please contact Gareth Roberts by sending a message via Sona. <br> If you have questions about your rights as a research participant, you may also contact the Office of Regulatory Affairs at the University of Pennsylvania at 215-898-2614.</p>
             
               <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
 
@@ -4326,25 +4328,11 @@ const exit_survey_trial = {
                 <form id="exit-survey-form">
                     
                     <h3 style="color:#0C0034; border-bottom:2px solid #eee; padding-bottom:5px; margin-top:0;">Group Experience</h3>
-                    ${makeLikert('ident_in_belong', `I felt a sense of belonging with the ${inG} users.`)}
                     ${makeLikert('ident_in_identify', `I identified with members of the ${inG} group.`)}
-                    ${makeLikert('ident_in_similar', `I felt similar to people in the ${inG} group.`)}
                     ${makeLikert('ident_in_interact', `I would prefer to interact more with ${inG} users.`)}
                     
-                    ${makeLikert('ident_out_belong', `I felt a sense of belonging with the ${outG} users.`)}
                     ${makeLikert('ident_out_identify', `I identified with members of the ${outG} group.`)}
-                    ${makeLikert('ident_out_similar', `I felt similar to people in the ${outG} group.`)}
-                    ${makeLikert('ident_out_interact', `I would prefer to interact more with ${outG} users.`)}
 
-                    <h3 style="color:#0C0034; border-bottom:2px solid #eee; padding-bottom:5px; margin-top:35px;">Social Interactions</h3>
-                    ${makeLikert('social_in_friendly', `Users in the ${inG} group were friendly toward me.`)}
-                    ${makeLikert('social_out_friendly', `Users in the ${outG} group were friendly toward me.`)}
-                    ${makeLikert('social_in_encouraged', `I felt encouraged by ${inG} users.`)}
-                    ${makeLikert('social_out_encouraged', `I felt encouraged by ${outG} users.`)}
-                    ${makeLikert('social_in_ignored', `I felt ignored by ${inG} users.`)}
-                    ${makeLikert('social_out_ignored', `I felt ignored by ${outG} users.`)}
-                    ${makeLikert('social_in_fit', `I felt like I did not fit in with ${inG} users.`)}
-                    ${makeLikert('social_out_fit', `I felt like I did not fit in with ${outG} users.`)}
                     ${makeLikert('social_comp_welcome', `I felt more welcomed by the ${outG} group than the ${inG} group.`)}
                     ${makeLikert('social_comp_comfort', `I felt more comfortable interacting with the ${outG} group than the ${inG} group.`)}
 
@@ -4356,42 +4344,23 @@ const exit_survey_trial = {
                     ${makeLikert('mot_reb_unconcerned', `I was less concerned with fitting in with the ${inG} group.`)}
                     ${makeLikert('mot_reb_against', `I felt inclined to go against the ${inG} group.`)}
                     ${makeLikert('mot_reb_diff', `I wanted to differentiate myself from the ${inG} group.`)}
-
-                    <h3 style="color:#0C0034; border-bottom:2px solid #eee; padding-bottom:5px; margin-top:35px;">Language & Slang</h3>
-                    ${makeLikert('slang_lunar_natural', `The slang used by the Lunar group felt natural.`)}
-                    ${makeLikert('slang_solar_natural', `The slang used by the Solar group felt natural.`)}
-                    ${makeLikert('slang_easy', `I found the slang easy to understand.`)}
-                    ${makeLikert('slang_realistic', `The slang felt like something people would actually say online.`)}
-                    ${makeLikert('slang_want_use', `I found myself wanting to use some of the slang.`)}
-                    ${makeLikert('slang_real_world', `I would consider using this slang outside of the study.`)}
                     ${makeLikert('slang_comfort_out_in', `I felt more comfortable using ${outG} slang than ${inG} slang.`)}
 
                     <h3 style="color:#0C0034; border-bottom:2px solid #eee; padding-bottom:5px; margin-top:35px;">Vocabulary</h3>
                     <p style="font-size:0.9rem; color:#666; margin-top:0;">Based on your interactions, what do the following words most closely mean?</p>
-                    ${makeMCQ('vocab_crater', 'What does "crater" most closely mean?', ['Very / extremely', 'Slightly', 'Confusing', 'Negative', 'Unsure'])}
-                    ${makeMCQ('vocab_waxing', 'What does "waxing" mean?', ['Positive / good', 'Neutral', 'Negative', 'Unsure'])}
-                    ${makeMCQ('vocab_waning', 'What does "waning" mean?', ['Negative / bad', 'Positive', 'Increasing', 'Unsure'])}
-                    ${makeMCQ('vocab_high_noon', 'What does "high noon" mean?', ['Very / extremely', 'Late / delayed', 'Awkward', 'Unsure'])}
-                    ${makeMCQ('vocab_shining', 'What does "shining" mean?', ['Positive / good', 'Negative', 'Uncertain', 'Unsure'])}
-                    ${makeMCQ('vocab_smoldering', 'What does "smoldering" mean?', ['Negative / bad', 'Positive', 'Energetic', 'Unsure'])}
+                    ${makeMCQ('vocab_crater', 'What does "crater" most closely mean?', ['Very', 'Slightly', 'Confusing', 'Negative', 'Unsure'])}
+                    ${makeMCQ('vocab_waxing', 'What does "waxing" mean?', ['Neutral', 'Positive', 'Negative', 'Unsure'])}
+                    ${makeMCQ('vocab_waning', 'What does "waning" mean?', ['Positive', 'Increasing', 'Negative', 'Unsure'])}
+                    ${makeMCQ('vocab_high_noon', 'What does "high noon" mean?', ['Late', 'Awkward', 'Very', 'Unsure'])}
+                    ${makeMCQ('vocab_shining', 'What does "shining" mean?', ['Positive', 'Negative', 'Uncertain', 'Unsure'])}
+                    ${makeMCQ('vocab_smoldering', 'What does "smoldering" mean?', ['Positive', 'Energetic', 'Unsure', 'Negative'])}
 
                     <h3 style="color:#0C0034; border-bottom:2px solid #eee; padding-bottom:5px; margin-top:35px;"> User Experience</h3>
                     ${makeLikert('ux_enjoyed', `I enjoyed using the platform.`)}
-                    ${makeLikert('ux_realistic', `The interactions felt realistic.`)}
-                    ${makeLikert('ux_engaging', `The experience felt engaging.`)}
-                    ${makeLikert('ux_awkward', `The experience felt awkward.`)}
-                    ${makeLikert('ux_comfortable', `I felt comfortable posting and replying.`)}
-                    ${makeLikert('ux_real_people', `I felt like I was interacting with real people.`)}
                     ${makeLikert('ux_connected', `I felt socially connected while using the platform.`)}
-                    ${makeLikert('ux_judged', `I felt judged by other users.`)}
-                    ${makeLikert('ux_supported', `I felt supported by other users.`)}
                     ${makeLikert('attn_check', `Please select "7 (Strongly Agree)" for this question to show you are reading.`)}
 
-                    ${makeTextarea('open_stood_out', 'What stood out to you most about your interactions?')}
-                    ${makeTextarea('open_unnatural', 'Did anything feel unnatural or unrealistic? If so, what?')}
                     ${makeTextarea('open_how_respond', 'How did you decide how to respond to others?')}
-                    ${makeTextarea('open_suspicion_1', 'What do you think this study was about?')}
-                    ${makeTextarea('open_suspicion_2', 'Did anything seem staged or artificial?')}
 
                     <h3 style="color:#0C0034; border-bottom:2px solid #eee; padding-bottom:5px; margin-top:35px;">Demographics</h3>
                     
